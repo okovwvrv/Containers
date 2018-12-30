@@ -1,0 +1,27 @@
+--- /usr/sbin/xrdp-build-pulse-modules	2017-12-22 09:59:15.000000000 +1000
++++ /usr/sbin/xrdp-build-pulse-modules_new	2018-12-29 12:05:57.438469070 +1000
+@@ -19,12 +19,12 @@
+ tmp=$(mktemp -d); cd "$tmp"
+ 
+ # Determine versions of pulseaudio and xrdp
+-pulseaudio_version=$(dpkg-query -W -f='${source:Version}' pulseaudio)
++pulseaudio_version=$(dpkg-query -W -f='${source:Version}' pulseaudio | cut -d':' -f2)
+ pulseaudio_upstream_version=$(dpkg-query -W -f='${source:Upstream-Version}' pulseaudio)
+ 
+ # Determine mirror
+-if test -x /usr/bin/apt ; then
+-	set -- $(apt show "pulseaudio=$pulseaudio_version" 2>/dev/null)
++if test -x /usr/bin/apt-cache ; then
++	set -- $(apt-cache policy pulseaudio | fgrep -A1 '***' | tail -1)
+ 	mirror=$2
+ 	suite=${3#*/}
+ fi
+@@ -34,7 +34,7 @@
+ fi
+ 
+ # Download source packages
+-dget "$mirror/pool/$suite/p/pulseaudio/pulseaudio_$pulseaudio_version.dsc"
++dget -u "$mirror/pool/$suite/p/pulseaudio/pulseaudio_$pulseaudio_version.dsc"
+ 
+ # Configure pulseaudio source
+ cd "pulseaudio-$pulseaudio_upstream_version"

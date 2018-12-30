@@ -1,6 +1,6 @@
 # docker base
 FROM unilynx/phusion-baseimage-1804
-MAINTAINER Carlos Hernandez <carlos@techbyte.ca>
+MAINTAINER okovwvrv <okovwvrv@protonmail.com>
 
 #########################################
 ##        ENVIRONMENTAL CONFIG         ##

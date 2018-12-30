@@ -1,1 +1,1 @@
-docker build -t xrdp-base --rm=true .
+docker build -t okovwvrv/xrdp-base --rm=true .

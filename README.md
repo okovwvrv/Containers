@@ -7,3 +7,4 @@ The script files included in each of the containers enabling building and creati
 2. xsession WIDTH and HEIGHT; and
 3. the conatinerise X display name - APP_NAME.
 
+Don;t forget that if your wanting sound that pulseaudio daemon must be running on the host. eg. pulseaudio --start -D shoudl do that if its not already running.

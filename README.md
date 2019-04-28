@@ -7,4 +7,11 @@ The script files included in each of the containers enabling building and creati
 2. xsession WIDTH and HEIGHT; and
 3. the conatinerise X display name - APP_NAME.
 
-Don;t forget that if your wanting sound that pulseaudio daemon must be running on the host. eg. pulseaudio --start -D shoudl do that if its not already running.
+Don't forget that if your wanting sound that pulseaudio daemon must be running on the host. eg. pulseaudio --start -D should do that if its not already running.
+
+Containers Supported through xrdp:
+Base - Base xrdp container with lxterminal;
+Firefox - Firefox container built upon the Base container;
+Wireshark - Wireshark container built upon the Base container.
+
+The repository is also linked to dockerhub where you can pull the containers directly. 
